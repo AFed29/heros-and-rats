@@ -9,4 +9,12 @@ Hero.prototype.greeting = function () {
   return `Greetings, I am ${ this.name }!`
 };
 
+Hero.prototype.eat = function (food) {
+  if (food.name === this.favouriteFood) {
+    this.health += (food.replenishmentValue * 1.5)
+  } else {
+    this.health += food.replenishmentValue;
+  }
+};
+
 module.exports = Hero;
