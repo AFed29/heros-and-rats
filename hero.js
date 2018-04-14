@@ -21,6 +21,14 @@ Hero.prototype.addTask = function (task) {
   this.tasks.push(task);
 };
 
+Hero.prototype.completeTask = function (taskToComplete) {
+  this.tasks.forEach(function (task) {
+    if (task === taskToComplete) {
+      task.flipCompleted();
+    }
+  })
+};
+
 Hero.prototype.sortTasks = function (sortBy) {
   this.tasks.sort(function (a, b) {
     let valueA = a[sortBy];
@@ -38,6 +46,14 @@ Hero.prototype.sortTasks = function (sortBy) {
       return 0;
     }
   })
+};
+
+Hero.prototype.showUncompletedTasks = function () {
+  return this.tasks.filter((task) => task.completed === false);
+};
+
+Hero.prototype.showCompletedTasks = function () {
+  return this.tasks.filter((task) => task.completed === true);
 };
 
 module.exports = Hero;

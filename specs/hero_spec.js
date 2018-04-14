@@ -44,6 +44,12 @@ describe('Hero', function () {
     assert.deepStrictEqual(hero.tasks, [task1]);
   });
 
+  it('should be able to complete a task', function () {
+    hero.addTask(task1);
+    hero.completeTask(task1);
+    assert.strictEqual(task1.completed, true);
+  });
+
   describe('Eating', function () {
     it('should be able to eat food to increase health(not favourite food)', function () {
       hero.eat(food1);
@@ -65,22 +71,35 @@ describe('Hero', function () {
       hero.addTask(task2);
       hero.addTask(task3);
       hero.addTask(task4);
+      hero.completeTask(task2);
+      hero.completeTask(task3);
     });
 
     it('should be able to sort tasks by difficulty', function () {
-      hero.sortTasks('difficulty')
-      assert.deepStrictEqual(hero.tasks, [task4, task1, task2, task3])
+      hero.sortTasks('difficulty');
+      assert.deepStrictEqual(hero.tasks, [task4, task1, task2, task3]);
     });
 
     it('should be able to sort tasks by priority', function () {
-      hero.sortTasks('priority')
-      assert.deepStrictEqual(hero.tasks, [task1, task4, task2, task3])
+      hero.sortTasks('priority');
+      assert.deepStrictEqual(hero.tasks, [task1, task4, task2, task3]);
     });
 
     it('should be able to sort tasks by reward', function () {
-      hero.sortTasks('reward')
-      assert.deepStrictEqual(hero.tasks, [task3, task1, task2, task4])
+      hero.sortTasks('reward');
+      assert.deepStrictEqual(hero.tasks, [task3, task1, task2, task4]);
     });
+
+    it('should be able to display uncompleted tasks', function () {
+      const result = hero.showUncompletedTasks();
+      assert.deepStrictEqual(result, [task1, task4]);
+    });
+
+    it('should be able to display completed tasks', function () {
+      const result = hero.showCompletedTasks();
+      assert.deepStrictEqual(result, [task2, task3]);
+    });
+
   });
 
 });
