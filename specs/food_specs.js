@@ -15,5 +15,13 @@ describe('Food', function () {
   it('should have a replenishment value', function () {
     assert.strictEqual(food.replenishmentValue, 20);
   });
-  
+
+  it('should start not poisoned', function () {
+    assert.strictEqual(food.isPoisoned, false);
+  });
+
+  it('should be able to become poisoned', function () {
+    food.poison();
+    assert.strictEqual(food.isPoisoned, true);
+  })
 });
