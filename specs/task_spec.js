@@ -12,7 +12,7 @@ describe('Task', function () {
     assert.strictEqual(task.difficulty, 'hard');
   });
 
-  it('should have an urgency level', function () {
+  it('should have an priority', function () {
     assert.strictEqual(task.priority, 'medium');
   });
 

@@ -17,4 +17,27 @@ Hero.prototype.eat = function (food) {
   }
 };
 
+Hero.prototype.addTask = function (task) {
+  this.tasks.push(task);
+};
+
+Hero.prototype.sortTasks = function (sortBy) {
+  this.tasks.sort(function (a, b) {
+    let valueA = a[sortBy];
+    let valueB = b[sortBy];
+
+    if (sortBy === 'reward') {
+      return valueA - valueB;
+    } else {
+      if (valueA < valueB) {
+        return -1;
+      }
+      if (valueA > valueB) {
+        return 1;
+      }
+      return 0;
+    }
+  })
+};
+
 module.exports = Hero;
