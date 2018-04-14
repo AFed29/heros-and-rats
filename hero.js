@@ -10,10 +10,14 @@ Hero.prototype.greeting = function () {
 };
 
 Hero.prototype.eat = function (food) {
-  if (food.name === this.favouriteFood) {
-    this.health += (food.replenishmentValue * 1.5)
+  if (food.isPoisoned) {
+    this.health -= 20;
   } else {
-    this.health += food.replenishmentValue;
+    if (food.name === this.favouriteFood) {
+      this.health += (food.replenishmentValue * 1.5)
+    } else {
+      this.health += food.replenishmentValue;
+    }
   }
 };
 
