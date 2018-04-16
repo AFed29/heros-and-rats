@@ -38,18 +38,14 @@ Hero.prototype.sortTasks = function (sortBy) {
     let valueA = a[sortBy];
     let valueB = b[sortBy];
 
-    if (sortBy === 'reward') {
-      return valueA - valueB;
-    } else {
-      if (valueA < valueB) {
-        return -1;
-      }
-      if (valueA > valueB) {
-        return 1;
-      }
-      return 0;
+    if (valueA < valueB) {
+      return -1;
     }
-  })
+    if (valueA > valueB) {
+      return 1;
+    }
+    return 0;
+  });
 };
 
 Hero.prototype.showUncompletedTasks = function () {

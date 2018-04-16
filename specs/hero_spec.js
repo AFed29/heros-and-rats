@@ -11,8 +11,10 @@ describe('Hero', function () {
 
   beforeEach(function () {
     hero = new Hero('Alan', 100, 'peppers panini');
+
     food1 = new Food('lentil soup', 10);
     food2 = new Food('peppers panini', 20);
+
     task1 = new Task('hard', 'high', 400)
     task2 = new Task('hard', 'medium', 500)
     task3 = new Task('medium', 'medium', 10)
